@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import sdom from '@/public/images/sdom.jpg';
+import placeholder from '@/public/images/placeholder.png';
 import clockIcon from '@/public/icons/clock.svg';
 import locationIcon from '@/public/icons/geo-alt.svg';
 
@@ -41,8 +41,8 @@ function ProductDetailsLayout({
       <div className='d-grid gap-1 d-md-block'>
         <div className='px-2 py-5 my-3'>
           <div className='col-lg-6 mx-auto'>
-            <Image src={sdom} alt={'eventPic'} className='img-fluid rounded mb-3' />
-            <h2 className='fw-bold'>Details:</h2>
+            <Image src={placeholder} alt={'productPic'} className='img-fluid rounded mb-3' />
+            <h2 className='fw-bold'>Description:</h2>
             <p className='lead mb-4'>{details} </p>
             <button type='button' className='btn btn-primary'>
               {buttonText}

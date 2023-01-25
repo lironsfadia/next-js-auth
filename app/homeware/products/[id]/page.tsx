@@ -8,6 +8,7 @@ import { PageProps } from '@/types/PageProps';
 
 async function getData(id: number): Promise<Product> {
   const res = await getProduct(id);
+  console.log(res);
 
   if (!res) {
     throw new Error('Failed to fetch data.');

@@ -1,7 +1,7 @@
-import { EventsMode } from '@/constants/enums';
+import { ProductMode } from '@/constants/enums';
 
 export type sideBarItem = {
   name: string;
   href: string;
-  mode: EventsMode;
+  mode: ProductMode;
 };

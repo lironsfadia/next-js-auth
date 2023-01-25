@@ -1,3 +1,5 @@
+import { ProductMode } from '@/constants/enums';
+
 export type Product = {
   id: number;
   title: string;
@@ -5,4 +7,5 @@ export type Product = {
   on_sale: boolean;
   sale_price: number;
   full_price: number;
+  mode: ProductMode;
 };

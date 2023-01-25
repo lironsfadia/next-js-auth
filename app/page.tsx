@@ -1,7 +1,7 @@
 import React from 'react';
 
 import HomeLayout from '@/components/HomeLayout';
-import { Urls, EventsMode } from '@/constants/enums';
+import { ProductMode, Urls } from '@/constants/enums';
 
 export default function Page() {
   return (
@@ -10,7 +10,7 @@ export default function Page() {
         <HomeLayout
           headline='Homeware store'
           body='Click to see our homeware products...'
-          buttonLink={`${Urls.HOMEWARE}?${EventsMode.NEW}`}
+          buttonLink={`${Urls.HOMEWARE}?${ProductMode.NEW}`}
           buttonText={'Homeware products'}
         />
       </div>
