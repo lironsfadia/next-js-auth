@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.next
+.DS_Store
+.vscode/settings.json
+ yarn-error.log
