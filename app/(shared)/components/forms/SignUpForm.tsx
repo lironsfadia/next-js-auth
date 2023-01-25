@@ -41,14 +41,14 @@ function SignUpForm({ handleSubmitForm }: SignUpFormProps) {
           <Input
             fieldId='email'
             fieldType='email'
-            fieldLabelText='אימייל'
+            fieldLabelText='Email'
             showError={errors.email ?? undefined}
             rest={{
               ...register('email', {
-                required: 'שדה חובה',
+                required: 'email is required',
                 pattern: {
                   value: /\S+@\S+\.\S+/,
-                  message: 'הכנס אימייל בפורמט חוקי',
+                  message: 'please enter a valid email',
                 },
               }),
             }}
@@ -59,15 +59,15 @@ function SignUpForm({ handleSubmitForm }: SignUpFormProps) {
           <Input
             fieldId='password'
             fieldType='password'
-            fieldLabelText='סיסמא'
+            fieldLabelText='Password'
             showError={errors.password ?? undefined}
             errors={errors}
             rest={{
               ...register('password', {
-                required: 'שדה חובה',
+                required: 'password is required',
                 minLength: {
                   value: 5,
-                  message: 'סיסמא חייבת להכיל לפחות 5 תווים',
+                  message: 'password must be at least 5 characters',
                 },
               }),
             }}
@@ -77,13 +77,13 @@ function SignUpForm({ handleSubmitForm }: SignUpFormProps) {
           <Input
             fieldId='firstName'
             fieldType='text'
-            fieldLabelText='שם פרטי (בעברית)'
+            fieldLabelText='First Name'
             showError={errors.firstName ?? undefined}
             errors={errors}
             rest={{
               ...register('firstName', {
-                required: 'שדה חובה',
-                pattern: { value: /^[א-ת\s]+$/i, message: 'שם פרטי חייב לכלול אותיות בעברית בלבד' },
+                required: 'firstName is required',
+                pattern: { value: /^[a-zA-Z]+$/i, message: 'first name can only contain letters' },
               }),
             }}
           />
@@ -92,13 +92,13 @@ function SignUpForm({ handleSubmitForm }: SignUpFormProps) {
           <Input
             fieldId='lastName'
             fieldType='text'
-            fieldLabelText='שם משפחה (בעברית)'
+            fieldLabelText='Family Name'
             showError={errors.lastName ?? undefined}
             errors={errors}
             rest={{
               ...register('lastName', {
-                required: 'שדה חובה',
-                pattern: { value: /^[א-ת\s]+$/i, message: 'שם משפחה חייב לכלול אותיות בעברית בלבד' },
+                required: 'family name is required',
+                pattern: { value: /^[a-zaA-Z]+$/i, message: 'family name can only contain letters' },
               }),
             }}
           />
@@ -108,17 +108,16 @@ function SignUpForm({ handleSubmitForm }: SignUpFormProps) {
           <Input
             fieldId='phoneNumber'
             fieldType='tel'
-            fieldLabelText='מספר טלפון'
+            fieldLabelText='Telephone Number'
             showError={errors.phoneNumber ?? undefined}
             errors={errors}
-            rest={{ ...register('phoneNumber', { required: 'שדה חובה' }) }}
+            rest={{ ...register('phoneNumber', { required: 'telephone number is required' }) }}
           />
         </div>
       </div>
       <button className='w-100 mt-4 mb-2 btn btn-lg rounded-3 btn-primary' type='submit'>
         Sign up
       </button>
-      <small className='text-muted'>כל הפרטים ישמרו במערכת מלבד השם המלא שיהיה חשוף למשתמשים רשומים</small>
     </form>
   );
 }

@@ -8,7 +8,6 @@ import { PageProps } from '@/types/PageProps';
 
 async function getData(id: number): Promise<Product> {
   const res = await getProduct(id);
-  console.log(res);
 
   if (!res) {
     throw new Error('Failed to fetch data.');
@@ -18,15 +17,16 @@ async function getData(id: number): Promise<Product> {
 
 export default async function Page({ params }: PageProps) {
   const { id } = params!;
-  const { title, description, on_sale, sale_price, full_price } = await getData(id);
+  const { title, description, on_sale, final_price, full_price, manufacturer } = await getData(id);
 
   return (
     <ProductDetailsLayout
       title={title}
       details={description}
       isSale={on_sale}
-      salePrice={sale_price}
+      salePrice={final_price}
       fullPrice={full_price}
+      manufacturer={manufacturer}
       buttonText='Details'
     />
   );

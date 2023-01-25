@@ -4,8 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 
 import placeholder from '@/public/images/placeholder.png';
-import clockIcon from '@/public/icons/clock.svg';
-import locationIcon from '@/public/icons/geo-alt.svg';
+import shopIcon from '@/public/icons/shop.svg';
+import dollarIcon from '@/public/icons/currency-dollar.svg';
 
 import { ProductDetailsLayoutProps } from '@/types/ProductDetailsLayoutProps';
 import { SvgIconWrapper } from './SvgIconWrapper';
@@ -17,6 +17,7 @@ function ProductDetailsLayout({
   salePrice,
   fullPrice,
   buttonText,
+  manufacturer,
 }: ProductDetailsLayoutProps): JSX.Element {
   return (
     <div>
@@ -26,11 +27,17 @@ function ProductDetailsLayout({
             <h1 className='display-5 fw-bold'>{title}</h1>
             <div className='d-flex flex-column justify-content-start text-break'>
               <div>
-                <SvgIconWrapper iconPath={clockIcon} iconAlt={'time'} />
-                <span className='font-size-base-6 ms-2 mb-4'>{fullPrice}</span>
+                <SvgIconWrapper iconPath={shopIcon} iconAlt={'time'} />
+                <span className='font-size-base-6 ms-2 mb-4'> {manufacturer}</span>
               </div>
               <div className='mt-2'>
-                <SvgIconWrapper iconPath={locationIcon} iconAlt={'location'} />
+                <SvgIconWrapper iconPath={dollarIcon} iconAlt={'location'} />
+                {isSale ? (
+                  <span className='font-size-base-6 ms-2 mb-4'>
+                    <s>{fullPrice}</s>
+                  </span>
+                ) : null}
+
                 <span className='font-size-base-6 ms-2 mb-4'>{salePrice}</span>
               </div>
             </div>

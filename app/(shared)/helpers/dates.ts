@@ -1,8 +1,8 @@
 import Dayjs from 'dayjs';
 
-import { CARD_EVENT_DATE_FORMAT, DATE_FORMAT, TIME_FORMAT } from '@/constants/globalConstants';
+import { CARD_DATE_FORMAT, DATE_FORMAT, TIME_FORMAT } from '@/constants/globalConstants';
 
-export const getDateAndTimeByFormat = (date: string, time: string, format: string = CARD_EVENT_DATE_FORMAT): string =>
+export const getDateAndTimeByFormat = (date: string, time: string, format: string = CARD_DATE_FORMAT): string =>
   Dayjs(`${date} ${time}`).format(format);
 
 export const getStartAndFinishTimeText = (

@@ -34,14 +34,14 @@ function LogInForm({ handleSubmitForm }: LogInFormProps) {
           <Input
             fieldId='email'
             fieldType='email'
-            fieldLabelText='אימייל'
+            fieldLabelText='Email'
             showError={errors.email ?? undefined}
             rest={{
               ...register('email', {
-                required: 'שדה חובה',
+                required: 'email is required',
                 pattern: {
                   value: /\S+@\S+\.\S+/,
-                  message: 'הכנס אימייל בפורמט חוקי',
+                  message: 'Please enter a valid email address',
                 },
               }),
             }}
@@ -52,15 +52,15 @@ function LogInForm({ handleSubmitForm }: LogInFormProps) {
           <Input
             fieldId='password'
             fieldType='password'
-            fieldLabelText='סיסמא'
+            fieldLabelText='Password'
             showError={errors.password ?? undefined}
             errors={errors}
             rest={{
               ...register('password', {
-                required: 'שדה חובה',
+                required: 'password is required',
                 minLength: {
                   value: 5,
-                  message: 'סיסמא חייבת להכיל לפחות 5 תווים',
+                  message: 'password must be at least 5 characters',
                 },
               }),
             }}
@@ -70,7 +70,7 @@ function LogInForm({ handleSubmitForm }: LogInFormProps) {
       <div className='checkbox mb-3 mt-3'>
         <label>
           <input className={'ml-4'} type='checkbox' value='remember-me' />
-          זכור אותי
+          remember me
         </label>
       </div>
       <button className='w-100 mt-4 mb-2 btn btn-lg rounded-3 btn-primary' type='submit'>

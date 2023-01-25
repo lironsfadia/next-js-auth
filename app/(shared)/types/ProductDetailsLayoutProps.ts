@@ -5,4 +5,5 @@ export type ProductDetailsLayoutProps = {
   isSale: boolean;
   salePrice: number;
   fullPrice: number;
+  manufacturer: string;
 };
