@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { appState } from '@/src/store';
 import ProductDetailsLayout from '@/components/ProductDetailsLayout';
-import { getStartAndFinishTimeText } from '@/helpers/dates';
 import { getProduct } from '@/services/apiHelper';
 import { Product } from '@/types/Product';
 import { PageProps } from '@/types/PageProps';
@@ -19,6 +19,8 @@ export default async function Page({ params }: PageProps) {
   const { id } = params!;
   const { title, description, on_sale, final_price, full_price, manufacturer } = await getData(id);
 
+  appState.setState({ price: on_sale ? final_price : full_price });
+
   return (
     <ProductDetailsLayout
       title={title}
@@ -27,7 +29,7 @@ export default async function Page({ params }: PageProps) {
       salePrice={final_price}
       fullPrice={full_price}
       manufacturer={manufacturer}
-      buttonText='Details'
+      buttonText='ADD TO BAG'
     />
   );
 }

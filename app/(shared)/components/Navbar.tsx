@@ -6,6 +6,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { Urls } from '@/constants/enums';
 import Modal from './modals/Modal';
 import SignUpForm from './forms/SignUpForm';
+import TotalCart from './TotalCart';
 
 export default function Navbar(): JSX.Element {
   const { data: session } = useSession();
@@ -31,6 +32,7 @@ export default function Navbar(): JSX.Element {
           <div className='d-grid gap-2 d-md-flex justify-content-md-end'>
             {session?.user ? (
               <>
+                <TotalCart />
                 <p className='lead text-primary'>
                   <strong>{session.user.name}</strong>
                 </p>

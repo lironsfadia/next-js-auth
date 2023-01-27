@@ -9,6 +9,7 @@ import dollarIcon from '@/public/icons/currency-dollar.svg';
 
 import { ProductDetailsLayoutProps } from '@/types/ProductDetailsLayoutProps';
 import { SvgIconWrapper } from './SvgIconWrapper';
+import { appState } from '@/src/store';
 
 function ProductDetailsLayout({
   title,
@@ -51,7 +52,12 @@ function ProductDetailsLayout({
             <Image src={placeholder} alt={'productPic'} className='img-fluid rounded mb-3' />
             <h2 className='fw-bold'>Description:</h2>
             <p className='lead mb-4'>{details} </p>
-            <button type='button' className='btn btn-primary'>
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={() => {
+                appState.setState((state) => ({ cartTotal: state.cartTotal + (isSale ? salePrice : fullPrice) }));
+              }}>
               {buttonText}
             </button>
           </div>
